@@ -15,4 +15,12 @@ const sequelize = process.env.DB_URL
       },
     });
 
+    sequelize.authenticate()
+  .then(() => {
+    console.log('Database connection established successfully.');
+  })
+  .catch((err: Error) => {
+    console.error('Unable to connect to the database:', err);
+  });
+
 export default sequelize;
