@@ -1,6 +1,6 @@
 /* import express from 'express';
 import type { Request, Response } from 'express';
-import { User } from '../../models/User';
+import { User } from '../../models/user';
 
 const router = express.Router();
 
@@ -68,4 +68,4 @@ router.delete('/users/:id', async (req, res) => {
     }
 });
 
-export { router as userRouter }; */
+export { router as userRouter };

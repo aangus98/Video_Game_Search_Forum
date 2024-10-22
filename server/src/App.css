@@ -1,0 +1,30 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background-color: aqua;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.ribbon {
+  background-color: blue;
+}
+
+.gamecard {
+  background-color: rgb(253, 255, 223);
+  border: solid;
+}
+
+.page {
+  background-color: grey;
+  max-width: 5000rem;
+  
+}
+
+h2 {
+  color: white;
+}
