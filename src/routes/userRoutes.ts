@@ -1,4 +1,4 @@
-import express from 'express':
+/* import express from 'express':
 import User from '../models/User';
 
 const router = express.Router();
@@ -23,4 +23,4 @@ router.get('/users', async (req, res) => {
     }
 });
 
-export default router;
+export default router; */

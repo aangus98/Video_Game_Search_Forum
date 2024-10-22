@@ -1,4 +1,4 @@
-import { Router, type request, type response } from 'express';
+/* import { Router, type request, type response } from 'express';
 import { User } from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
@@ -26,4 +26,4 @@ const router = Router();
 
 router.post('/login', login);
 
-export default router;
+export default router; */
