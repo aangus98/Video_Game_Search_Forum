@@ -1,31 +1,20 @@
 // import sequelize from './config/connection.js';
 // import userRoutes from './routes/userRoutes.js';
 import express from 'express';
-<<<<<<< HEAD:server/src/server.ts
 import sequelize from './config/connection.js';
-<<<<<<< HEAD:server/src/server.ts
-import { userRoutes } from './routes/api/userRoutes.js';
-=======
-import userRoutes from './routes/userRoutes.js';
-=======
+import userRoutes from './routes/api/userRoutes.js';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
 
 dotenv.config();
->>>>>>> 71bb1dafe9e1374b08ddec82989086f487825a9a:src/server.ts
-
->>>>>>> 9f0edd42a1273293573e2f67b366a84dc9c23cf2:src/server.ts
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
 
 app.use(express.json());
-<<<<<<< HEAD:server/src/server.ts
 app.use(userRoutes);
-=======
->>>>>>> 71bb1dafe9e1374b08ddec82989086f487825a9a:src/server.ts
 
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
