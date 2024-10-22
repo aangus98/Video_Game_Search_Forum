@@ -1,4 +1,4 @@
-import express from 'express';
+/* import express from 'express';
 import type { Request, Response } from 'express';
 import { User } from '../../models/User';
 
@@ -68,4 +68,4 @@ router.delete('/users/:id', async (req, res) => {
     }
 });
 
-export { router as userRouter };
+export { router as userRouter }; */
