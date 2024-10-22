@@ -10,9 +10,14 @@ app.use(express.json());
 app.use(userRoutes);
 
 // Connect to the database before starting the Express.js server
-sequelize.sync().then(() => {
-  console.log(`Connected to database successfully.`);
-  app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`);
+sequelize.sync()
+  .then(() => {
+    console.log('Connected to database successfully.');
+    app.listen(PORT, () => {
+      console.log(`Server is listening on port ${PORT}`);
+    });
+  })
+  .catch((err: Error) => {
+    console.error('Failed to sync database:', err);
+    process.exit(1);
   });
-});
