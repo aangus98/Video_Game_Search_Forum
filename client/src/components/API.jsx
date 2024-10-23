@@ -1,14 +1,13 @@
-import './App.css'
 import { useState } from 'react'
 import axios from 'axios'
 
-function App() {
+function API() {
 const [gameTitle, setGameTitle] = useState('');
 const [results, setResults] = useState([]);
 
 const handleSearch = async () => {
   try {
-    const response = await axios.post('https://video-game-search-forum.onrender.com/api/search', {query: gameTitle});
+    const response = await axios.post('http://localhost:3001/api/search', {query: gameTitle});
     setResults(response.data);
   } catch (error) {
     console.log('Oh god, not an error!:', error);
@@ -35,4 +34,4 @@ const handleSearch = async () => {
   );
 }
 
-export default App
+export default API

@@ -1,10 +1,10 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 
 const GameCard = () => {
   const title = 'Game Name';
-  const genre = 'Genre';
-  const dev = 'Developer';
-  const criticScore = 'Score Example'
+  // const genre = 'Genre';
+  // const dev = 'Developer';
+  // const criticScore = 'Score Example'
 
 
 
@@ -15,7 +15,7 @@ const GameCard = () => {
       </div>
       <div>
        <div className="imagecontainer">
-        <img src={"src\assets\Halo_-_Combat_Evolved_(XBox_version_-_box_art).jpg/assets"}></img>
+        <img src={"src/assets/Halo_-_Combat_Evolved_(XBox_version_-_box_art).jpg/assets"}></img>
        </div>
        <div>
         <ul>

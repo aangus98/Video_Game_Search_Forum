@@ -1,10 +1,9 @@
-import { useState } from 'react'
 import './App.css'
 import GameCard from './Components/GameCard';
 import SearchBar from './Components/SearchBar';
+import API from './components/API'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
    
@@ -14,9 +13,8 @@ function App() {
           <SearchBar/>
         </header>
         <GameCard />
-        
+        <API />
       </div>
-    
   )
 }
 
