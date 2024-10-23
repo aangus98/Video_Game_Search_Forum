@@ -1,11 +1,7 @@
 import express from 'express';
 import sequelize from './config/connection.js';
-<<<<<<< HEAD:server/src/server.ts
 import { userRoutes } from './routes/api/userRoutes.js';
-=======
-import userRoutes from './routes/userRoutes.js';
 
->>>>>>> 9f0edd42a1273293573e2f67b366a84dc9c23cf2:src/server.ts
 const app = express();
 const PORT = process.env.PORT || 3001;
 
