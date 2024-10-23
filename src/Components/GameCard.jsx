@@ -1,29 +1,28 @@
 import { useState } from 'react';
+import placeholder from '../assets/placeholder.jpg';
+import GameCardContent from './GameCardContent';
 
 const GameCard = () => {
   const title = 'Game Name';
-  const genre = 'Genre';
+  const genre = 'Shooter';
   const dev = 'Developer';
   const criticScore = 'Score Example'
+  const releaseDate = 'November 15, 2001'
 
 
 
   return ( 
     <div className="gamecard">
       <div className="ribbon">
-          <h2>{ title }</h2>
+          <h2 className="ribbontext press-start-2p-regular">{ title }</h2>
+          <div className="boxrow">
+            <div className="fakeb"> _ </div>
+            <div className="fakeb"> □ </div>
+            <div className="fakex"> ✖ </div>
+          </div>
+          {/* <div className="fakex">X</div> */}
       </div>
-      <div>
-       <div className="imagecontainer">
-        <img src={"src\assets\Halo_-_Combat_Evolved_(XBox_version_-_box_art).jpg/assets"}></img>
-       </div>
-       <div>
-        <ul>
-          <li></li>
-          <li></li>
-        </ul>
-       </div>
-      </div>
+      <GameCardContent></GameCardContent>
     </div>
    );
 }
