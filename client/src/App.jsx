@@ -1,6 +1,6 @@
 import './App.css'
-import GameCard from './Components/GameCard';
-import SearchBar from './Components/SearchBar';
+import GameCard from './components/GameCard';
+import SearchBar from './components/SearchBar';
 import API from './components/API'
 
 function App() {
