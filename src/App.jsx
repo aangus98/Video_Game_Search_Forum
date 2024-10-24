@@ -5,6 +5,7 @@ import SearchBar from './Components/SearchBar';
 import ReviewCard from './Components/ReviewCard';
 import UserScore from './Components/UserScore';
 import Extras from './Components/Extras';
+import gamefologo from './assets/gamefologo.png'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,11 +14,13 @@ function App() {
    
       <div className="page">
         <header>
-          <h1>GAMEFO</h1>
-          <div className="row">
-            <button />
+          <div classsName="logo">
+            <img src={gamefologo} width="900"></img>
+          </div>
+          <div>
+            
             <SearchBar/>
-            <button />
+            
           </div>
           
         </header>

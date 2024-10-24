@@ -73,7 +73,7 @@
 .gamecard {
   background-color: rgb(249, 243, 219);
   border: solid;
-  margin: 5px 15px 5px 15px;
+  margin: 15px 15px 5px 15px;
   box-shadow:  4px 4px 4px rgba(0, 0, 0, 0.9);
   background-color: #e5e5f7;
   opacity: 0.8;
@@ -92,7 +92,7 @@
 }
 
 .page {
-
+  align-items: space-between;
   max-width: 5000rem;
 
 }
@@ -109,6 +109,7 @@ h2 {
 .cardcontent {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   margin: 10px 20px 20px 20px;
 }
 
@@ -120,10 +121,47 @@ h2 {
 .cardrow {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .boxrow {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.barrow {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: space-around;
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.logo {
+  margin: 20rem 0rem 0rem 0rem;
+}
+
+.greybutton {
+  background-color: rgb(179, 179, 179);
+  margin: 0rem 2rem 0rem 2rem;
+  font-size: x-large;
+}
+
+.search-input {
+  margin: 1rem 0rem 1rem 0rem;
+  font-size: large;
+  border: solid;
+}
+
+.search {
+  width: max-content;
+  display: flex;
+  align-items: center;
+}
+
+.redicon {
+  background-color: rgb(165, 0, 0);
+  border: solid rgba(255, 255, 255, 0.44);
+  border-radius: 5px;
+  color: white;
 }

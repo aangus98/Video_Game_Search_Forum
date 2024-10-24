@@ -4,12 +4,6 @@ import GameCardContent from './GameCardContent';
 
 const GameCard = () => {
   const title = 'Game Name';
-  const genre = 'Shooter';
-  const dev = 'Developer';
-  const criticScore = 'Score Example'
-  const releaseDate = 'November 15, 2001'
-
-
 
   return ( 
     <div className="gamecard">
@@ -20,7 +14,6 @@ const GameCard = () => {
             <div className="fakeb"> □ </div>
             <div className="fakex"> ✖ </div>
           </div>
-          {/* <div className="fakex">X</div> */}
       </div>
       <GameCardContent></GameCardContent>
     </div>

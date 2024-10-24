@@ -9,7 +9,6 @@ const UserScore = () => {
             <div className="fakeb"> □ </div>
             <div className="fakex"> ✖ </div>
           </div>
-          {/* <div className="fakex">X</div> */}
       </div>
       
     </div>
