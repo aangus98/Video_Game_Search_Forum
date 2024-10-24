@@ -9,6 +9,7 @@ const handleSearch = async () => {
   try {
     const response = await axios.post('https://video-game-search-forum.onrender.com/api/search', {query: gameTitle});
     setResults(response.data);
+    console.log(response.data);
   } catch (error) {
     console.log('Oh god, not an error!:', error);
   }
@@ -34,4 +35,5 @@ const handleSearch = async () => {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export default API
