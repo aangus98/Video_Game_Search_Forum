@@ -17,6 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(userRoutes);
 
+
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
   try {
