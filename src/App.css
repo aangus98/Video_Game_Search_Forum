@@ -1,11 +1,23 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0rem 7rem 2rem 7rem;
+  /* max-width: 950px;
+  margin: 0 auto ;
+  padding: 1rem 0rem 2rem 0rem;
   text-align: center;
   background-color: rgb(184, 184, 184);
   display: flex;
-  justify-content: center;
+  justify-content: center; 
+  border: double 5px; */
+}
+
+body {
+  max-width: 950px;
+  margin: 0 auto ;
+  padding: 1rem 0rem 2rem 0rem;
+  text-align: center;
+  background-color: rgb(184, 184, 184);
+  display: flex;
+  justify-content: center; 
+  border: double 5px;
 }
 
 .stack {
@@ -100,6 +112,7 @@
 header {
   background-color: rgb(103, 103, 103);
   border-radius: 2rem;
+  border: dotted;
 }
 
 h2 {
@@ -145,6 +158,7 @@ h2 {
   background-color: rgb(179, 179, 179);
   margin: 0rem 2rem 0rem 2rem;
   font-size: x-large;
+  border: outset;
 }
 
 .search-input {
@@ -157,6 +171,8 @@ h2 {
   width: max-content;
   display: flex;
   align-items: center;
+  border: outset;
+  background-color: rgb(179, 179, 179);
 }
 
 .redicon {

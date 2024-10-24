@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import DarkMode from './darkmode';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -9,7 +10,7 @@ const SearchBar = () => {
 
   return (
     <div className="barrow">
-      <div><button className="greybutton"> 𖤓 / ☾ .⭒</button></div>
+      <div><DarkMode /></div>
       <div>
         <form>
           <div className="search">

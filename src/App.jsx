@@ -11,7 +11,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   
+    <div className="Bakcground">
       <div className="page">
         <header>
           <div classsName="logo">
@@ -31,7 +31,7 @@ function App() {
         </div>
         <Extras></Extras>
       </div>
-    
+    </div>
   )
 }
 
