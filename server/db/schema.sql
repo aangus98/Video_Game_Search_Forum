@@ -3,9 +3,6 @@ DROP DATABASE IF EXISTS forum_db;
 -- Create the database
 CREATE DATABASE forum_db;
 
--- Connect to the databaseVivian2024!
-
-
 -- Connect to the database
 \c forum_db;
 
