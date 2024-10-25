@@ -1,14 +1,13 @@
-import { useState } from 'react'
 import './App.css'
-import GameCard from './Components/GameCard';
-import SearchBar from './Components/SearchBar';
+import GameCard from './components/GameCard';
+import SearchBar from './components/SearchBar';
 import ReviewCard from './Components/ReviewCard';
 import UserScore from './Components/UserScore';
 import Extras from './Components/Extras';
 import gamefologo from './assets/gamefologo.png'
+import API from './components/API'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <div className="Bakcground">
@@ -30,6 +29,7 @@ function App() {
           <UserScore></UserScore>
         </div>
         <Extras></Extras>
+        <API />
       </div>
     </div>
   )
