@@ -8,12 +8,13 @@
   color-scheme: light dark;
   color: rgb(255, 255, 255);
   background-color: #600886;
-  /**/
+
   background-color: #000000;
 opacity: 1;
 background: radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent), radial-gradient(circle, transparent 20%, #000000 20%, #000000 80%, transparent 80%, transparent) 32.5px 32.5px, linear-gradient(#954f4f 2.6px, transparent 2.6px) 0 -1.3px, linear-gradient(90deg, #954f4f 2.6px, #000000 2.6px) -1.3px 0;
 background-size: 65px 65px, 65px 65px, 32.5px 32.5px, 32.5px 32.5px;
-  /**/
+
+
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -35,17 +36,6 @@ h1 {
   line-height: 1.1;
 }
 
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-} */
 button:hover {
   border-color: #646cff;
 }

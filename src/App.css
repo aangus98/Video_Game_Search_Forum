@@ -43,8 +43,7 @@ body {
   justify-content: space-between;
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
-  /* position: relative;
-  z-index: 2; */
+
 }
 
 .ribbontext {
@@ -59,9 +58,6 @@ body {
   padding: 0px 5px 0px 5px;;
   font-size: larger;
   margin: 5px 5px 0px 5px;
-
-  /* position: relative;
-  z-index: 1; */
 }
 
 .fakeb {
@@ -72,9 +68,6 @@ body {
   padding: 0px 5px 0px 5px;;
   font-size: larger;
   margin: 5px 5px 0px 5px;
-
-  /* position: relative;
-  z-index: 1; */
 }
 
 .boxrow {
@@ -145,7 +138,6 @@ h2 {
 
 .barrow {
   display: flex;
-  /* flex-direction: row; */
   justify-content: space-around;
   padding: 1rem 2rem 2rem 2rem;
 }

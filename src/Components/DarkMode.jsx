@@ -14,12 +14,13 @@ const DarkMode = () => {
   };
   
   return ( 
-    // <input 
-    //   className="greybutton"
-    //   type="checkbox"
-    //   onChange={toggleTheme}
-    // > 𖤓 / ☾ .⭒</input>
-    <button />
+    
+    <button 
+       className="greybutton"
+       type="checkbox"
+       onCllick={toggleTheme}
+     > 𖤓 / ☾ .⭒</button>
+    
     
    );
 }
