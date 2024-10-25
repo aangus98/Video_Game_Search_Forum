@@ -12,6 +12,15 @@ app.use(cors());
 
 app.use(express.json());
 
+interface Game {
+  aggregated_rating: number;
+  involved_companies: { company: { name: string } }[];
+  first_release_date: number;
+  genres: { name: string }[];
+  cover: { image_id: string };
+  [key: string]: any;
+}
+
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
   try {
@@ -27,7 +36,7 @@ app.post('/api/search', async (req, res) => {
       }
     );
 
-const gameData = response.data.map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
+const gameData = (response.data as Game[]).map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
   ...rest,
   cover: `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`,
   critic_score: Math.round(aggregated_rating),
