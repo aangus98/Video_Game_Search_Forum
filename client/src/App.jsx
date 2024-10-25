@@ -1,38 +1,38 @@
 import './App.css'
-import { useState } from 'react'
-import axios from 'axios'
+import GameCard from './components/GameCard';
+import SearchBar from './components/SearchBar';
+import ReviewCard from './Components/ReviewCard';
+import UserScore from './Components/UserScore';
+import Extras from './Components/Extras';
+import gamefologo from './assets/gamefologo.png'
+import API from './components/API'
 
 function App() {
-const [gameTitle, setGameTitle] = useState('');
-const [results, setResults] = useState([]);
-
-const handleSearch = async () => {
-  try {
-    const response = await axios.post('https://video-game-search-forum.onrender.com/api/search', {query: gameTitle});
-    setResults(response.data);
-  } catch (error) {
-    console.log('Oh god, not an error!:', error);
-  }
-};
 
   return (
-    <div>
-      <h1>Search for a game</h1>
-      <input
-        type='text'
-        value={gameTitle}
-        onChange={(e) => setGameTitle(e.target.value)}
-        placeholder='Search for a game'
-        />
-        <button onClick={handleSearch}>Search</button>
-
-        <ul>
-          {results.map((game) => (
-            <li key={game.id}>{game.name}</li>
-          ))}
-        </ul>
+    <div className="Bakcground">
+      <div className="page">
+        <header>
+          <div classsName="logo">
+            <img src={gamefologo} width="900"></img>
+          </div>
+          <div>
+            
+            <SearchBar/>
+            
+          </div>
+          
+        </header>
+        <GameCard></GameCard>
+        <div className="cardrow">
+          <ReviewCard></ReviewCard>
+          <UserScore></UserScore>
+        </div>
+        <Extras></Extras>
+        <API />
+      </div>
     </div>
-  );
+  )
 }
 
 export default App
