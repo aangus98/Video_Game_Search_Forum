@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DarkMode from './darkmode';
+import DarkMode from './DarkMode';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
