@@ -2,6 +2,9 @@ import express from 'express';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
+import { pool, connectToDatabase } from './config/connection.js'; // Import the connection pool
+
+await connectToDatabase(); // Connect to the database
 
 dotenv.config();
 
@@ -12,6 +15,7 @@ app.use(cors());
 
 app.use(express.json());
 
+// Define the Game interface
 interface Game {
   aggregated_rating: number;
   involved_companies: { company: { name: string } }[];
@@ -21,6 +25,18 @@ interface Game {
   [key: string]: any;
 }
 
+pool.connect()
+  .then(() => {
+    console.log('Connected to the database');
+  })
+  .catch((error) => {
+    console.error('Database connection error:', error);
+    process.exit(1);
+  });
+
+console.log(pool);
+
+// Define the search endpoint
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
   try {
@@ -36,6 +52,7 @@ app.post('/api/search', async (req, res) => {
       }
     );
 
+// Map the response data to the desired format    
 const gameData = (response.data as Game[]).map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
   ...rest,
   cover: `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`,

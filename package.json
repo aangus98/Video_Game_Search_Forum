@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "startFront": "vite",
-    "buildFront": "vite build",
-    "startBack": "node ./server-dist/src/server.js",
-    "buildBack": "npx tsc",
+    "sf": "vite",
+    "bf": "vite build",
+    "sb": "node ./server-dist/src/server.js",
+    "bb": "npx tsc",
     "lint": "eslint .",
     "preview": "vite preview",
     "start": "node server.js"
