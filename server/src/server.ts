@@ -29,11 +29,11 @@ app.post('/api/search', async (req, res) => {
 
 const gameData = response.data.map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
   ...rest,
-  cover: `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`,
-  critic_score: Math.round(aggregated_rating),
-  genres: genres.map(genreObj => genreObj.name),
-  developers: involved_companies.map(companyObj => companyObj.company.name),
-  release_date: first_release_date ? new Date(first_release_date * 1000).toLocaleDateString() : "Unknown",
+  cover: cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`: 'PLACEHOLDERIMAGE',
+  critic_score: aggregated_rating ? Math.round(aggregated_rating) : 'N/A',
+  genres: genres ? genres.map(genreObj => genreObj.name) : 'N/A',
+  developers: involved_companies ? involved_companies.map(companyObj => companyObj.company.name) : 'Unknown',
+  release_date: first_release_date ? new Date(first_release_date * 1000).toLocaleDateString() : "TBA",
 }));
 
     res.json(gameData);
