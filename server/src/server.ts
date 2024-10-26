@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
+import sequelize from './config/connection.js';
 
 dotenv.config();
 
@@ -43,6 +44,10 @@ const gameData = response.data.map(({aggregated_rating, involved_companies, firs
   }
 });
 
+sequelize.sync().then(() =>{
+  console.log('Connected to THE database');
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+});
+
