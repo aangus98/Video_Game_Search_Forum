@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20+Charted&display=swap');
 
 :root {
-  font-family: jersey-20-charted-regular;
+  font-family: "Press Start 2P", system-ui;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   background-color: #600886;
 
   background-color: #000000;
@@ -53,6 +53,11 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+    font-family: "Press Start 2P", system-ui;
+    font-size: large;
+  }
+  input {
+    font-family: "Press Start 2P", system-ui;
   }
 }
 
@@ -65,3 +70,4 @@ button:focus-visible {
 .background {
   
 }
+

@@ -10,21 +10,21 @@ import API from './components/API'
 function App() {
 
   return (
-    <div className="Bakcground">
-      <div className="page">
-        <header>
-          <div classsName="logo">
-            <img src={gamefologo} width="900"></img>
+    <div className="Bakcground container">
+      <div className="page container">
+        <header className="container"> 
+          <div classsName="logo container">
+            <img className="imagelogo container" src={gamefologo} width="900"></img>
           </div>
-          <div>
+          <div className='container'>
             
-            <SearchBar/>
+            <SearchBar className="container"/>
             
           </div>
           
         </header>
-        <GameCard></GameCard>
-        <div className="cardrow">
+        <GameCard className="container"></GameCard>
+        <div className="cardrow container">
           <ReviewCard></ReviewCard>
           <UserScore></UserScore>
         </div>
