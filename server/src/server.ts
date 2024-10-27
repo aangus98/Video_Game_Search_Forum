@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
+import sequelize from './config/connection.js';
+import routes from './routes/api/index.js';
 
 dotenv.config();
 
@@ -9,8 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
-
 app.use(express.json());
+app.use('/api', routes);
 
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
@@ -43,6 +45,9 @@ const gameData = response.data.map(({aggregated_rating, involved_companies, firs
   }
 });
 
+sequelize.sync().then(() =>{
+  console.log('Connected to THE database');
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
 });
