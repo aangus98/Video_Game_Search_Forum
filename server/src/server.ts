@@ -25,6 +25,7 @@ interface Game {
   [key: string]: any;
 }
 
+// Connect to the database
 pool.connect()
   .then(() => {
     console.log('Connected to the database');
