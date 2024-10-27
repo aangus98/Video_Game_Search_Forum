@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
 import sequelize from './config/connection.js';
+import routes from './routes/api/index.js';
 
 dotenv.config();
 
@@ -10,8 +11,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
-
 app.use(express.json());
+app.use('/api', routes);
 
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
@@ -50,4 +51,3 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 });
-
