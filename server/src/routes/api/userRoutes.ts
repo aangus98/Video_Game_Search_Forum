@@ -1,11 +1,11 @@
-/* import express from 'express';
+import express from 'express';
 import type { Request, Response } from 'express';
-import { User } from '../../models/user';
+import { User } from '../../models/index.js';
 
 const router = express.Router();
 
 //Create a new User
-router.post('/users', async (req, res) => {
+router.post('/users', async (req: Request, res: Response) => {
     try {
         const user = await User.create(req.body);
         res.status(201).json(user);
@@ -15,7 +15,7 @@ router.post('/users', async (req, res) => {
     })    
 
 // Fetch all users
-router.get('/users', async (req, res) => {
+router.get('/users', async (req: Request, res: Response) => {
     try {
         const users = await User.findAll();
         res.status(200).json(users);
@@ -25,7 +25,7 @@ router.get('/users', async (req, res) => {
 });
 
 // Fetch a single user by ID
-router.get('/users/:id', async (req, res) => {
+router.get('/users/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
@@ -39,7 +39,7 @@ router.get('/users/:id', async (req, res) => {
 });
 
 // Update a user by ID
-router.put('/users/:id', async (req, res) => {
+router.put('/users/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
@@ -54,7 +54,7 @@ router.put('/users/:id', async (req, res) => {
 });
 
 // Delete a user by ID
-router.delete('/users/:id', async (req, res) => {
+router.delete('/users/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
@@ -68,4 +68,4 @@ router.delete('/users/:id', async (req, res) => {
     }
 });
 
-export { router as userRouter }; */
+export { router as userRouter };
