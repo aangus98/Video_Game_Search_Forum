@@ -1,9 +1,9 @@
 import './App.css'
 import GameCard from './components/GameCard';
 import SearchBar from './components/SearchBar';
-import ReviewCard from './Components/ReviewCard';
-import UserScore from './Components/UserScore';
-import Extras from './Components/Extras';
+import ReviewCard from './components/ReviewCard';
+import UserScore from './components/UserScore';
+import Extras from './components/Extras';
 import gamefologo from './assets/gamefologo.png'
 import API from './components/API'
 

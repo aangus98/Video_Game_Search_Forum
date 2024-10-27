@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
+import sequelize from './config/connection.js';
+import routes from './routes/api/index.js';
 import { pool, connectToDatabase } from './config/connection.js'; // Import the connection pool
 
 await connectToDatabase(); // Connect to the database
@@ -12,32 +14,8 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(cors());
-
 app.use(express.json());
 
-// Define the Game interface
-interface Game {
-  aggregated_rating: number;
-  involved_companies: { company: { name: string } }[];
-  first_release_date: number;
-  genres: { name: string }[];
-  cover: { image_id: string };
-  [key: string]: any;
-}
-
-// Connect to the database
-pool.connect()
-  .then(() => {
-    console.log('Connected to the database');
-  })
-  .catch((error) => {
-    console.error('Database connection error:', error);
-    process.exit(1);
-  });
-
-console.log(pool);
-
-// Define the search endpoint
 app.post('/api/search', async (req, res) => {
   const {query} = req.body;
   try {
@@ -56,11 +34,11 @@ app.post('/api/search', async (req, res) => {
 // Map the response data to the desired format    
 const gameData = (response.data as Game[]).map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
   ...rest,
-  cover: `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`,
-  critic_score: Math.round(aggregated_rating),
-  genres: genres.map(genreObj => genreObj.name),
-  developers: involved_companies.map(companyObj => companyObj.company.name),
-  release_date: first_release_date ? new Date(first_release_date * 1000).toLocaleDateString() : "Unknown",
+  cover: cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`: 'PLACEHOLDERIMAGE',
+  critic_score: aggregated_rating ? Math.round(aggregated_rating) : 'N/A',
+  genres: genres ? genres.map(genreObj => genreObj.name) : 'N/A',
+  developers: involved_companies ? involved_companies.map(companyObj => companyObj.company.name) : 'Unknown',
+  release_date: first_release_date ? new Date(first_release_date * 1000).toLocaleDateString() : "TBA",
 }));
 
     res.json(gameData);
@@ -70,6 +48,9 @@ const gameData = (response.data as Game[]).map(({aggregated_rating, involved_com
   }
 });
 
+sequelize.sync().then(() =>{
+  console.log('Connected to THE database');
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
+});
 });
