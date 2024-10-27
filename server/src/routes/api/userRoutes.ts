@@ -15,7 +15,7 @@ router.post('/users', async (req: Request, res: Response) => {
         console.log('Error creating user', err);
         res.status(500).json({ error: err.message });
     }
-    })    
+    });
 
 // Fetch all users
 router.get('/users', async (req: Request, res: Response) => {
