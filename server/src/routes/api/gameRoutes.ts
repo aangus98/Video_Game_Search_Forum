@@ -5,7 +5,7 @@ import { Game } from '../../models/index.js';
 const router = express.Router();
 
 //Create a new game if it doesn't exist
-router.post('/games', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     const {api_id, title} = req.body;
     try {
         let game = await Game.findOne({where: {api_id}});
@@ -21,7 +21,7 @@ router.post('/games', async (req: Request, res: Response) => {
 });
 
 // Fetch a single game by ID
-router.get('/games/:id', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response) => {
     try {
         const game = await Game.findByPk(req.params.id);
         if (!game) {

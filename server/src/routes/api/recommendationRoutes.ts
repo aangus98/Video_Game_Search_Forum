@@ -6,7 +6,7 @@ import { authenticateToken } from '../../middleware/auth.js';
 const router = express.Router();
 
 //Create a new recommendation
-router.post('/recommendations', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     const {user_id, api_id, title, recommended_game_id} = req.body;
     try {
         if (!user_id || !api_id || !title || !recommended_game_id) {
@@ -26,7 +26,7 @@ router.post('/recommendations', async (req: Request, res: Response) => {
 });
 
 // Get all recommendations for a game
-router.get('/recommendations/game/:game_id', async (req: Request, res: Response) => {
+router.get('/game/:game_id', async (req: Request, res: Response) => {
     try {
         const recommendations = await Recommendation.findAll({where: {game_id: req.params.game_id}});
         res.status(200).json(recommendations);
@@ -36,7 +36,7 @@ router.get('/recommendations/game/:game_id', async (req: Request, res: Response)
 });
 
 // Delete a recommendation by ID
-router.delete('/recommendations/:id', authenticateToken, async (req: Request, res: Response) => {
+router.delete('/:id', authenticateToken, async (req: Request, res: Response) => {
     try {
         const recommendation = await Recommendation.findByPk(req.params.id);
         if (!recommendation) {

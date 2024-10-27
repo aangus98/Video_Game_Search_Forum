@@ -6,7 +6,7 @@ import { authenticateToken } from '../../middleware/auth.js';
 const router = express.Router();
 
 //Create a new completion time entry
-router.post('/completiontimes', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
     const {user_id, api_id, title, completionTime} = req.body;
     try {
         if (!user_id || !api_id || !title || !completionTime) {
@@ -26,7 +26,7 @@ router.post('/completiontimes', async (req: Request, res: Response) => {
 });
 
 // Get all completion time entries for a game
-router.get('/completiontimes/game/:game_id', async (req: Request, res: Response) => {
+router.get('/game/:game_id', async (req: Request, res: Response) => {
     try {
         const completionTime = await CompletionTime.findAll({where: {game_id: req.params.game_id}});
         res.status(200).json(completionTime);
@@ -36,7 +36,7 @@ router.get('/completiontimes/game/:game_id', async (req: Request, res: Response)
 });
 
 // Delete a completion time entry by ID
-router.delete('/completiontimes/:id', authenticateToken, async (req: Request, res: Response) => {
+router.delete('/:id', authenticateToken, async (req: Request, res: Response) => {
     try {
         const completionTime = await CompletionTime.findByPk(req.params.id);
         if (!completionTime) {
