@@ -6,10 +6,13 @@ const router = express.Router();
 
 //Create a new User
 router.post('/users', async (req: Request, res: Response) => {
+    console.log('Recieved data:', req.body);
     try {
         const user = await User.create(req.body);
+        console.log('Created User:', user);
         res.status(201).json(user);
     } catch (err) {
+        console.log('Error creating user', err);
         res.status(500).json({ error: err.message });
     }
     })    
