@@ -1,26 +1,18 @@
-/* import { DataTypes, type Sequelize, Model, type Optional } from 'sequelize';
+import { DataTypes, Sequelize, Model, Optional } from 'sequelize';
 import bcrypt from 'bcrypt';
 
 interface UserAttributes {
   id: number;
   username: string;
-  email: string;
   password: string;
 }
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-export class User
-  extends Model<UserAttributes, UserCreationAttributes>
-  implements UserAttributes
-{
+export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
   public id!: number;
   public username!: string;
-  public email!: string;
   public password!: string;
-
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
 
   // Hash the password before saving the user
   public async setPassword(password: string) {
@@ -38,21 +30,18 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         primaryKey: true,
       },
       username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      },
-      email: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(24),
         allowNull: false,
       },
       password: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(250),
         allowNull: false,
       },
     },
     {
-      tableName: 'users',
       sequelize,
+      tableName: 'users',
+      timestamps: false,
       hooks: {
         beforeCreate: async (user: User) => {
           await user.setPassword(user.password);
@@ -60,9 +49,9 @@ export function UserFactory(sequelize: Sequelize): typeof User {
         beforeUpdate: async (user: User) => {
           await user.setPassword(user.password);
         },
-      },
+      }
     }
   );
 
   return User;
-} */
+}
