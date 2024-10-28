@@ -6,13 +6,14 @@ import { authenticateToken } from '../../middleware/auth.js';
 const router = express.Router();
 
 //Create a new review
-router.post('/', async (req: Request, res: Response) => {
-    const {user_id, api_id, title, content, score} = req.body;
+router.post('/', authenticateToken, async (req: Request, res: Response) => {
+    const {api_id, title, content, score} = req.body;
     try {
-        if (!user_id || !api_id || !title|| !content || !score) {
+        if (!api_id || !title|| !content || !score) {
             res.status(400).json({error: 'All fields required'});
             return;
         } else {
+        const user_id = req.user.id;
         let game = await Game.findOne({where: {api_id}});
         if (!game) {
             game = await Game.create({api_id, title})
