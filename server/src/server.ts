@@ -33,7 +33,7 @@ app.post('/api/search', async (req, res) => {
 
 const gameData = response.data.map(({aggregated_rating, involved_companies, first_release_date, genres, cover, ...rest }) => ({
   ...rest,
-  cover: cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`: 'PLACEHOLDERIMAGE',
+  cover: cover ? `https://images.igdb.com/igdb/image/upload/t_cover_big/${cover.image_id}.jpg`: 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
   critic_score: aggregated_rating ? Math.round(aggregated_rating) : 'N/A',
   genres: genres ? genres.map(genreObj => genreObj.name) : 'N/A',
   developers: involved_companies ? involved_companies.map(companyObj => companyObj.company.name) : 'Unknown',

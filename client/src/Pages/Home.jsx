@@ -1,8 +1,11 @@
 import '../App.css';
 import SearchBar from '../components/SearchBar';
 import gamefologo from '../assets/gamefologo.png';
+import { useContext } from 'react';
+import { ResultsContext } from '../components/ResultsContext';
 
 export function Home() {
+  const {setResults} = useContext(ResultsContext);
 
   return (
     <div className="Bakcground container">
@@ -13,7 +16,7 @@ export function Home() {
           </div>
           <div className='container'>
             
-            <SearchBar className="container"/>
+            <SearchBar setResults={setResults} />
             
           </div>
           
@@ -23,4 +26,4 @@ export function Home() {
   )
 };
 
-// export default Home;
+export default Home;
