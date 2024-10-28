@@ -7,9 +7,9 @@ const router = express.Router();
 
 //Create a new recommendation
 router.post('/', authenticateToken, async (req: Request, res: Response) => {
-    const {api_id, title, recommended_game_id} = req.body;
+    const {api_id, title, recommended_game_api_id, recommended_game_title} = req.body;
     try {
-        if (!api_id || !title || !recommended_game_id) {
+        if (!api_id || !title || !recommended_game_api_id || !recommended_game_title) {
             res.status(400).json({error: 'All fields required'});
             return;
         } else {
@@ -18,7 +18,11 @@ router.post('/', authenticateToken, async (req: Request, res: Response) => {
         if (!game) {
             game = await Game.create({api_id, title})
         }
-        const recommendation = await Recommendation.create({user_id, game_id: game.id, recommended_game_id});
+        let recommendedGame = await Game.findOne({where: {api_id: recommended_game_api_id}});
+        if (!recommendedGame) {
+            recommendedGame = await Game.create({api_id: recommended_game_api_id, title: recommended_game_title});
+        }
+        const recommendation = await Recommendation.create({user_id, game_id: game.id, recommended_game_id: recommendedGame.id});
         res.status(201).json(recommendation);
         }
     } catch (error) {

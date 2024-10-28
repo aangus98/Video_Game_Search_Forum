@@ -7,14 +7,14 @@ const router = express.Router();
 
 //Create a new completion time entry
 router.post('/', authenticateToken, async (req: Request, res: Response) => {
-    const {api_id, title, completionTime} = req.body;
+    const {api_id, title, completion_time} = req.body;
     try {
-        if (!api_id || !title || !completionTime) {
+        if (!api_id || !title || !completion_time) {
             res.status(400).json({error: 'All fields required'});
             return;
         }
         const timeRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
-        if (!timeRegex.test(completionTime)) {
+        if (!timeRegex.test(completion_time)) {
             res.status(400).json({error: 'Invalid Time Format. Please Use "HH:MM:SS"'});
             return;
         }
@@ -23,7 +23,7 @@ router.post('/', authenticateToken, async (req: Request, res: Response) => {
         if (!game) {
             game = await Game.create({api_id, title})
         }
-        const completionTimeEntry = await CompletionTime.create({user_id, game_id: game.id, completionTime});
+        const completionTimeEntry = await CompletionTime.create({user_id, game_id: game.id, completion_time});
         res.status(201).json(completionTimeEntry);
         
     } catch (error) {
