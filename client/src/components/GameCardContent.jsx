@@ -2,7 +2,6 @@ import placeholder from '../assets/placeholder.jpg';
 
 const GameCardContent= () => {
 
-  const title = 'Game Name';
   const genre = 'Shooter';
   const dev = 'Developer';
   const criticScore = 'Score Example'

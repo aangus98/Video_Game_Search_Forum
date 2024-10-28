@@ -1,38 +1,18 @@
-import './App.css'
-import GameCard from './components/GameCard';
-import SearchBar from './components/SearchBar';
-import ReviewCard from './Components/ReviewCard';
-import UserScore from './Components/UserScore';
-import Extras from './Components/Extras';
-import gamefologo from './assets/gamefologo.png'
-import API from './components/API'
+import './App.css';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import {Home} from './Pages/Home';
+import {Results} from './Pages/Results';
 
 function App() {
 
   return (
-    <div className="Bakcground container">
-      <div className="page container">
-        <header className="container"> 
-          <div classsName="logo container">
-            <img className="imagelogo container" src={gamefologo} width="900"></img>
-          </div>
-          <div className='container'>
-            
-            <SearchBar className="container"/>
-            
-          </div>
-          
-        </header>
-        <GameCard className="container"></GameCard>
-        <div className="cardrow container">
-          <ReviewCard></ReviewCard>
-          <UserScore></UserScore>
-        </div>
-        <Extras></Extras>
-        <API />
-      </div>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/results" element={<Results/>}/>
+      </Routes>
+    </Router>
   )
 }
 
-export default App
+export default App;
