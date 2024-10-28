@@ -1,27 +1,12 @@
+import { useNavigate} from "react-router-dom";
 
-const DarkMode = () => {
-  const setDarkMode = () => {
-    document.querySelector("body").setAttribute("data-theme", "dark");
-  };
+const BackButton = () => {
+    let navigate = useNavigate();
+    return (
+        <>
+          <button onClick={() => navigate(-1)} className="greybutton"> Back </button> 
+        </>
+    );
+};
 
-  const setLightMode = () => {
-    document.querySelector("body").setAttribute("data-theme", "light")
-  };
-
-  const toggleTheme = e => {
-    if (e.target.checked) setDarkMode();
-    else setLightMode()
-  };
-  
-  return ( 
-    // <input 
-    //   className="greybutton"
-    //   type="checkbox"
-    //   onChange={toggleTheme}
-    // > 𖤓 / ☾ .⭒</input>
-    <button />
-    
-   );
-}
- 
-export default DarkMode;
+export default BackButton

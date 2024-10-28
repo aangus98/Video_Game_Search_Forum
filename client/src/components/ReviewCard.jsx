@@ -1,4 +1,4 @@
-import GameCardContent from './GameCardContent';
+
 
 const ReviewCard = () => {
   const rev1a = "8.75";
