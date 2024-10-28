@@ -13,7 +13,7 @@ export function Results() {
     <div className="Bakcground container">
       <div className="page container">
         <header className="container"> 
-          <div classsName="logo container">
+          <div className="logo container">
             <img className="imagelogo container" src={gamefologo} width="900"></img>
           </div>
           <div className='container'>

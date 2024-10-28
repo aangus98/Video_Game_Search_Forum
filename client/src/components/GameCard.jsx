@@ -1,7 +1,7 @@
 
 import GameCardContent from './GameCardContent';
 
-function GameCard() {
+const GameCard= () => {
   const title = 'Game Name';
 
   return (
