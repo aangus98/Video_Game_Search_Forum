@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import DarkMode from './DarkMode';
+import BackButton from './darkmode';
 
 const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -10,11 +10,11 @@ const SearchBar = () => {
 
   return (
     <div className="barrow">
-      <div><DarkMode /></div>
+      <div><BackButton /></div>
       <div>
         <form>
           <div className="search">
-            <span class="material-symbols-outlined redicon"> search</span>
+            <span className="material-symbols-outlined redicon"> search</span>
             <input className="search-input"
             type="text" 
             placeholder="Search For A Game..." 

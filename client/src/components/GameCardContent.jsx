@@ -2,7 +2,6 @@ import placeholder from '../assets/placeholder.jpg';
 
 const GameCardContent= () => {
 
-  const title = 'Game Name';
   const genre = 'Shooter';
   const dev = 'Developer';
   const criticScore = 'Score Example'
@@ -17,7 +16,7 @@ const GameCardContent= () => {
           <p className="textbox "> Genre | {genre} </p>
           <p className="textbox"> Developed By | {dev} </p>
           <p className="textbox"> Critic Score | {criticScore}</p>
-          <p className="textbox"> Released On | {releaseDate}</p>
+          <p className="textbox"> Release Date | {releaseDate}</p>
        </div>
       </div>
    );
