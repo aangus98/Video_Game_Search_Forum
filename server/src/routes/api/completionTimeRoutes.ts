@@ -6,7 +6,7 @@ import { authenticateToken } from '../../middleware/auth.js';
 const router = express.Router();
 
 //Create a new completion time entry
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', authenticateToken, async (req: Request, res: Response) => {
     const {api_id, title, completionTime} = req.body;
     try {
         if (!api_id || !title || !completionTime) {
