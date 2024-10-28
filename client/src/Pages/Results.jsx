@@ -5,9 +5,11 @@ import ReviewCard from '../Components/ReviewCard';
 import UserScore from '../Components/UserScore';
 import Extras from '../Components/Extras';
 import gamefologo from '../assets/gamefologo.png';
-import API from '../components/API';
+import { useContext } from 'react';
+import { ResultsContext } from '../components/ResultsContext';
 
 export function Results() {
+  const {results} = useContext(ResultsContext);
 
   return (
     <div className="Bakcground container">
@@ -18,21 +20,20 @@ export function Results() {
           </div>
           <div className='container'>
             
-            <SearchBar className="container"/>
+            <SearchBar />
             
           </div>
           
         </header>
-        <GameCard className="container"></GameCard>
+        <GameCard results={results[0]} className="container"></GameCard>
         <div className="cardrow container">
           <ReviewCard></ReviewCard>
           <UserScore></UserScore>
         </div>
         <Extras></Extras>
-        <API />
       </div>
     </div>
   )
 }
 
-// export default Results;
+export default Results;

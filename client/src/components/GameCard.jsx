@@ -1,8 +1,8 @@
 
 import GameCardContent from './GameCardContent';
 
-const GameCard= () => {
-  const title = 'Game Name';
+const GameCard= ({results}) => {
+  const title = results?.name || 'Game Name';
 
   return (
     <div className="gamecard">
@@ -14,7 +14,7 @@ const GameCard= () => {
           <div className="fakex"> ✖ </div>
         </div>
       </div>
-      <GameCardContent></GameCardContent>
+      <GameCardContent results={results} />
     </div>
   );
 }
