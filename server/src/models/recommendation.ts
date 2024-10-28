@@ -5,6 +5,7 @@ interface RecommendationAttributes {
   user_id: number;
   game_id: number;
   recommended_game_id: number;
+  recommended_game_title: string;
 }
 
 interface RecommendationCreationAttributes extends Optional<RecommendationAttributes, 'id'> {}
@@ -14,6 +15,7 @@ export class Recommendation extends Model<RecommendationAttributes, Recommendati
   public user_id!: number;
   public game_id!: number;
   public recommended_game_id!: number;
+  public recommended_game_title!: string;
 }
 
 export function RecommendationFactory(sequelize: Sequelize): typeof Recommendation {
@@ -34,6 +36,11 @@ export function RecommendationFactory(sequelize: Sequelize): typeof Recommendati
         type: DataTypes.INTEGER,
         allowNull: false,
       },
+      recommended_game_title: {
+        type: DataTypes.STRING(250),
+        allowNull: false,
+      },
+
     },
     {
       sequelize,

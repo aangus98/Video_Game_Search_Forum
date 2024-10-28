@@ -4,7 +4,7 @@ interface CompletionTimeAttributes {
   id: number;
   user_id: number;
   game_id: number;
-  completionTime: string;
+  completion_time: string;
 }
 
 interface CompletionTimeCreationAttributes extends Optional<CompletionTimeAttributes, 'id'> {}
@@ -13,7 +13,7 @@ export class CompletionTime extends Model<CompletionTimeAttributes, CompletionTi
   public id!: number;
   public user_id!: number;
   public game_id!: number;
-  public completionTime!: string;
+  public completion_time!: string;
 }
 
 export function CompletionTimeFactory(sequelize: Sequelize): typeof CompletionTime {
@@ -30,7 +30,7 @@ export function CompletionTimeFactory(sequelize: Sequelize): typeof CompletionTi
       game_id: {
         type: DataTypes.INTEGER,
       },
-      completionTime: {
+      completion_time: {
         type: DataTypes.TIME,
         allowNull: false,
       },

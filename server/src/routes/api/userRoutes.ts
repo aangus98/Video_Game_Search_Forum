@@ -5,17 +5,20 @@ import { User } from '../../models/index.js';
 const router = express.Router();
 
 //Create a new User
-router.post('/users', async (req: Request, res: Response) => {
+router.post('/', async (req: Request, res: Response) => {
+    console.log('Recieved data:', req.body);
     try {
         const user = await User.create(req.body);
+        console.log('Created User:', user);
         res.status(201).json(user);
     } catch (err) {
+        console.log('Error creating user', err);
         res.status(500).json({ error: err.message });
     }
-    })    
+    });
 
 // Fetch all users
-router.get('/users', async (req: Request, res: Response) => {
+router.get('/', async (req: Request, res: Response) => {
     try {
         const users = await User.findAll();
         res.status(200).json(users);
@@ -25,7 +28,7 @@ router.get('/users', async (req: Request, res: Response) => {
 });
 
 // Fetch a single user by ID
-router.get('/users/:id', async (req: Request, res: Response) => {
+router.get('/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
@@ -39,7 +42,7 @@ router.get('/users/:id', async (req: Request, res: Response) => {
 });
 
 // Update a user by ID
-router.put('/users/:id', async (req: Request, res: Response) => {
+router.put('/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {
@@ -54,7 +57,7 @@ router.put('/users/:id', async (req: Request, res: Response) => {
 });
 
 // Delete a user by ID
-router.delete('/users/:id', async (req: Request, res: Response) => {
+router.delete('/:id', async (req: Request, res: Response) => {
     try {
         const user = await User.findByPk(req.params.id);
         if (!user) {

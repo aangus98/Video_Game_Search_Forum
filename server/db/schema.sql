@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS forum_db;
-CREATE DATABASE forum_db;
-
-\c forum_db
-
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username VARCHAR(24) NOT NULL UNIQUE,
@@ -33,7 +28,7 @@ CREATE TABLE completion_times (
   id SERIAL PRIMARY KEY,
   user_id INT,
   game_id INT,
-  completionTime TIME NOT NULL,
+  completion_time TIME NOT NULL,
   FOREIGN KEY (user_id)
   REFERENCES users(id)
   ON DELETE CASCADE,
@@ -47,6 +42,7 @@ CREATE TABLE recommendations (
   user_id INT,
   game_id INT,
   recommended_game_id INT NOT NULL,
+  recommended_game_title VARCHAR(250) NOT NULL,
   FOREIGN KEY (user_id)
   REFERENCES users(id)
   ON DELETE CASCADE,

@@ -6,13 +6,14 @@ import { authenticateToken } from '../../middleware/auth.js';
 const router = express.Router();
 
 //Create a new review
-router.post('/reviews', async (req: Request, res: Response) => {
-    const {user_id, api_id, title, content, score} = req.body;
+router.post('/', authenticateToken, async (req: Request, res: Response) => {
+    const {api_id, title, content, score} = req.body;
     try {
-        if (!user_id || !api_id || !title|| !content || !score) {
+        if (!api_id || !title|| !content || !score) {
             res.status(400).json({error: 'All fields required'});
             return;
         } else {
+        const user_id = req.user.id;
         let game = await Game.findOne({where: {api_id}});
         if (!game) {
             game = await Game.create({api_id, title})
@@ -26,7 +27,7 @@ router.post('/reviews', async (req: Request, res: Response) => {
 });
 
 // Get all reviews for a game
-router.get('/reviews/game/:game_id', async (req: Request, res: Response) => {
+router.get('/game/:game_id', async (req: Request, res: Response) => {
     try {
         const reviews = await Review.findAll({where: {game_id: req.params.game_id}});
         res.status(200).json(reviews);
@@ -36,7 +37,7 @@ router.get('/reviews/game/:game_id', async (req: Request, res: Response) => {
 });
 
 // Delete a review by ID
-router.delete('/reviews/:id', authenticateToken, async (req: Request, res: Response) => {
+router.delete('/:id', authenticateToken, async (req: Request, res: Response) => {
     try {
         const review = await Review.findByPk(req.params.id);
         if (!review) {
