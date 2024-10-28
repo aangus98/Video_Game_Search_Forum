@@ -12,7 +12,12 @@ router.post('/', async (req: Request, res: Response) => {
         if (!api_id || !title || !completionTime) {
             res.status(400).json({error: 'All fields required'});
             return;
-        } else {
+        }
+        const timeRegex = /^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/;
+        if (!timeRegex.test(completionTime)) {
+            res.status(400).json({error: 'Invalid Time Format. Please Use "HH:MM:SS"'});
+            return;
+        }
         const user_id = req.user.id;
         let game = await Game.findOne({where: {api_id}});
         if (!game) {
@@ -20,7 +25,7 @@ router.post('/', async (req: Request, res: Response) => {
         }
         const completionTimeEntry = await CompletionTime.create({user_id, game_id: game.id, completionTime});
         res.status(201).json(completionTimeEntry);
-        }
+        
     } catch (error) {
         res.status(500).json({error: error.message});
     }
