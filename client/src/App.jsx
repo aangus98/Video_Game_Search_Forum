@@ -1,38 +1,22 @@
-import './App.css'
-import GameCard from './components/GameCard';
-import SearchBar from './components/SearchBar';
-import ReviewCard from './components/ReviewCard';
-import UserScore from './components/UserScore';
-import Extras from './components/Extras';
-import gamefologo from './assets/gamefologo.png'
-import API from './components/API'
-
+import './App.css';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Home} from './Pages/Home';
+import {Results} from './Pages/Results';
+import { ReviewPage } from './Pages/ReviewPage';
+import { ResultsProvider } from './components/ResultsContext';
 function App() {
 
   return (
-    <div className="Bakcground">
-      <div className="page">
-        <header>
-          <div classsName="logo">
-            <img src={gamefologo} width="900"></img>
-          </div>
-          <div>
-            
-            <SearchBar/>
-            
-          </div>
-          
-        </header>
-        <GameCard></GameCard>
-        <div className="cardrow">
-          <ReviewCard></ReviewCard>
-          <UserScore></UserScore>
-        </div>
-        <Extras></Extras>
-        <API />
-      </div>
-    </div>
+    <ResultsProvider>
+    <Router>
+      <Routes>
+        <Route exact path='/' element={<Home  />}/>
+        <Route exact path='/results' element={<Results  />}/>
+        <Route exact path='/reviews' element={<ReviewPage/>}/>
+      </Routes>
+    </Router>
+    </ResultsProvider>
   )
 }
 
-export default App
+export default App;

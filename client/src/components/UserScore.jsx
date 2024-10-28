@@ -1,5 +1,7 @@
 const UserScore = () => {
 
+  const rating = 'number';
+
   return ( 
     <div className="gamecard">
       <div className="ribbon">
@@ -10,7 +12,9 @@ const UserScore = () => {
             <div className="fakex"> ✖ </div>
           </div>
       </div>
-      
+      <div className="stack jersey-20-charted-regular"> 
+          <p className="textbox "> {rating} / 10 </p>
+       </div>
     </div>
    );
 }
