@@ -2,9 +2,10 @@ import express from 'express';
 import dotenv from 'dotenv';
 import axios from 'axios';
 import cors from 'cors';
-import sequelize from './config/connection.js';
+import { sequelize } from './config/connection.js';
 import routes from './routes/api/index.js';
 import { pool, connectToDatabase } from './config/connection.js'; // Import the connection pool
+import { Game } from './models/game.js';
 
 await connectToDatabase(); // Connect to the database
 

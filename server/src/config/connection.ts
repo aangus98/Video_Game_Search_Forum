@@ -45,4 +45,4 @@ const sequelize = process.env.DB_URL
     console.error('Unable to connect to the database:', err);
   });
 
-export { pool, connectToDatabase };
+export { pool, connectToDatabase, sequelize }; // Export the connection pool and connectToDatabase function
