@@ -4,6 +4,7 @@ import {Home} from './Pages/Home';
 import {Results} from './Pages/Results';
 import { SignIn } from './Pages/SignIn';
 import { ResultsProvider } from './components/ResultsContext';
+import AddPost from './Pages/AddPost';
 function App() {
 
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route exact path='/' element={<Home  />}/>
         <Route exact path='/results' element={<Results  />}/>
         <Route exact path='/signin' element={<SignIn />}/>
+        <Route exact path='/addpost' element={<AddPost />}/>
       </Routes>
     </Router>
     </ResultsProvider>

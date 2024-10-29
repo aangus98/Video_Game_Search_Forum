@@ -67,6 +67,11 @@ body {
   display: flex;
   flex-direction: row;;
 }
+.boxrow2 {
+  display: flex;
+  flex-direction: row;;
+}
+
 
 .gamecard {
   background-color: rgb(249, 243, 219);
@@ -144,6 +149,7 @@ h2 {
   margin: 0rem 2rem 0rem 2rem;
   font-size: x-large;
   border: outset;
+  line-height: auto;
 }
 
 .search-input {
@@ -177,6 +183,12 @@ h2 {
   }
  } */
 
+ .vcenter {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+ }
+
  .container {
   max-width: 1536px;
   margin-left: auto;
@@ -197,12 +209,27 @@ h2 {
   .container {
     max-width: 1024px;
   }
+  .search-input {
+    font-size: medium;
+  }
 }
 
 /* lg */
 @media (max-width: 1024px) {
   .container {
     max-width: 768px;
+  }
+  .imagelogo {
+    max-width: 600px;
+  }
+  .bfont {
+    font-size: medium;
+  }
+  .textbox {
+    font-size: large;
+  }
+  .search-input {
+    font-size: small;
   }
 }
 
@@ -211,6 +238,21 @@ h2 {
   .container {
     max-width: 640px;
   }
+  .imagelogo {
+    max-width: 530px;
+  }
+  .bfont {
+    font-size: small;
+  }
+  .textbox {
+    font-size: small;
+  }
+  .greybutton {
+    margin: 0rem 0.5rem 0rem 0.5rem;
+  }
+  .cardrow {
+    flex-direction: column;
+  }
 }
 
 /* sm */
@@ -218,11 +260,32 @@ h2 {
   .container {
     max-width: 475px;
   }
+  .imagelogo {
+    max-width: 380px
+  }
+  .cardcontent {
+    flex-direction: column;
+  }
+  .none {
+    display: none;
+  }
+  .barrow {
+    flex-direction: column;
+  }
 }
 
 /* xs */
 @media (max-width: 475px) {
   .container {
-    width: 100%;
+    max-width: 430px
+  }
+  .background {
+    display: ;
+  }
+  .imagelogo {
+    max-width: 340px
+  }
+  .boxrow2 {
+    flex-direction: column;
   }
 }
