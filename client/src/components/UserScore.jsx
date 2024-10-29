@@ -14,8 +14,11 @@ const UserScore = ({reviews}) => {
             <div className="fakex"> ✖ </div>
           </div>
       </div>
-      <div className="stack jersey-20-charted-regular"> 
+      <div className="stack vcenter"> 
           <p className="textbox "> {averageUserScore} / 10 </p>
+          <p className="textbox">
+            <button className="greybutton">Leave yours!</button>
+          </p>
        </div>
     </div>
    );

@@ -10,11 +10,10 @@ const Extras = ({recommendations, completionTimes}) => {
             <div className="fakeb"> □ </div>
             <div className="fakex"> ✖ </div>
           </div>
-          {/* <div className="fakex">X</div> */}
       </div>
-    <div className="boxrow">
-      <div className="textbox">
-        <h3>Recommended</h3>
+    <div className="boxrow2">
+      <div className="stack">
+        <h3 className="textbox">Recommended Games</h3>
         {recommendations.length > 0 ? (
           recommendations.map((rec, index) => (
           <p key={index}>{rec.recommended_game_title}</p>
@@ -22,6 +21,9 @@ const Extras = ({recommendations, completionTimes}) => {
         ) : (
           <p>No recommendations yet</p>
         )}
+        <p className="textbox">
+            <button className="greybutton">Add A Game</button>
+          </p>
       </div>
       <div className="textbox">
         <h3>Completion <br />Times</h3>
@@ -32,6 +34,9 @@ const Extras = ({recommendations, completionTimes}) => {
         ) : (
           <p>No times yet</p>
         )}
+        <p className="textbox">
+            <button className="greybutton">Submit A Time</button>
+          </p>
       </div>
       </div>
     </div>

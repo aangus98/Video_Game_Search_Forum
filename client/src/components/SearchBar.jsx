@@ -67,7 +67,7 @@ const SearchBar = () => {
           </div>
         </form>
       </div>
-      <div><button onClick={navigateToSignIn} className="greybutton"> Sign in / Register</button></div>
+      <div><button onClick={navigateToSignIn} className="greybutton bfont"> Sign in / Register</button></div>
     </div>
   );
 };
