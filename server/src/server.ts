@@ -38,7 +38,7 @@ const gameData = response.data.map(({aggregated_rating, involved_companies, firs
   genres: genres ? genres.map(genreObj => genreObj.name) : 'N/A',
   developers: involved_companies ? involved_companies.map(companyObj => companyObj.company.name) : 'Unknown',
   release_date: first_release_date ? new Date(first_release_date * 1000).toLocaleDateString() : "TBA",
-}));
+}))[0];
 
     res.json(gameData);
   } catch (error) {
