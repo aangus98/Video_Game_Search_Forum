@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import BackButton from './darkmode';
+import BackButton from './DarkMode';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ResultsContext } from './ResultsContext';
