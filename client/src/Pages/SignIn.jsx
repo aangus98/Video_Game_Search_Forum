@@ -2,14 +2,14 @@ import '../App.css';
 import SearchBar from '../components/SearchBar';
 import gamefologo from '../assets/gamefologo.png';
 import { useState } from 'react';
-import LoginForm from '../components/loginForm';
-import RegisterForm from '../components/registerForm';
+import LoginForm from '../components/LoginForm';
+import RegisterForm from '../components/RegisterForm';
 
 export function SignIn() {
   const [showRegistration, setShowRegistration] = useState(false);
 
   return (
-    <div className="Bakcground container">
+    <div className="Background container">
       <div className="page container">
         <header className="container"> 
           <div className="logo container">
