@@ -1,6 +1,8 @@
-const UserScore = () => {
+const UserScore = ({reviews}) => {
 
-  const rating = 'number';
+  const averageUserScore = reviews && reviews.length > 0
+  ? (reviews.reduce((sum, review) => sum + review.score, 0) / reviews.length).toFixed(1)
+  : "Nothin'";
 
   return ( 
     <div className="gamecard">
@@ -13,7 +15,7 @@ const UserScore = () => {
           </div>
       </div>
       <div className="stack jersey-20-charted-regular"> 
-          <p className="textbox "> {rating} / 10 </p>
+          <p className="textbox "> {averageUserScore} / 10 </p>
        </div>
     </div>
    );

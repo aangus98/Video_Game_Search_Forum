@@ -1,8 +1,12 @@
 import '../App.css';
 import SearchBar from '../components/SearchBar';
 import gamefologo from '../assets/gamefologo.png';
+import { useState } from 'react';
+import LoginForm from '../components/loginForm';
+import RegisterForm from '../components/registerForm';
 
-export function ReviewPage() {
+export function SignIn() {
+  const [showRegistration, setShowRegistration] = useState(false);
 
   return (
     <div className="Bakcground container">
@@ -14,11 +18,17 @@ export function ReviewPage() {
           <div className='container'>
             
             <SearchBar className="container"/>
-            
           </div>
-          
         </header>
+        <div className='container form-toggle'>
+          <button onClick={() => setShowRegistration(!showRegistration)}>
+            {showRegistration ? 'Switch to Login' : 'Switch to Registration'}
+          </button>
+          {showRegistration ? <RegisterForm /> : <LoginForm />}
+        </div>
       </div>
     </div>  
   )
-};
+}
+
+export default SignIn;
