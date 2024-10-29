@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
-import BackButton from './darkmode';
+import BackButton from './DarkMode';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ResultsContext } from './ResultsContext';
@@ -17,13 +17,39 @@ const SearchBar = () => {
       const response = await axios.post('https://video-game-search-forum.onrender.com/api/search', {
         query: searchGame,
       });
-      setResults(response.data);
-      console.log(response.data);
-      navigate('/results')
+      if (response.data) {
+        const api_id = response.data.id;
+        let userContent = {};
+
+        const checkForGame = await axios.get(`https://video-game-search-forum.onrender.com/api/games/check/${api_id}`);
+        
+        if (checkForGame.data.exists) {
+          const game_id = checkForGame.data.id;
+          const [reviewResponse, recommendationResponse, completionTimeResponse] = await Promise.all([
+            axios.get(`https://video-game-search-forum.onrender.com/api/reviews/game/${game_id}`),
+            axios.get(`https://video-game-search-forum.onrender.com/api/recommendations/game/${game_id}`),
+            axios.get(`https://video-game-search-forum.onrender.com/api/completiontimes/game/${game_id}`)
+          ]);
+          
+          userContent = {
+            reviews: reviewResponse.data,
+            recommendations: recommendationResponse.data,
+            completionTimes: completionTimeResponse.data
+          }
+        }
+        setResults([{...response.data, ...userContent}]);
+        console.log({...response.data, ...userContent});
+        sessionStorage.setItem('searchedGameData', JSON.stringify(response.data));
+        sessionStorage.setItem('searchedGameUserContent', JSON.stringify(userContent));
+        navigate('/results')
+      }      
     } catch (error) {
       console.log('Oh god, not an error!', error);
     }
   };
+  const navigateToSignIn = () => {
+    navigate ('/signin');
+  }
 
   return (
     <div className="barrow">
@@ -41,7 +67,7 @@ const SearchBar = () => {
           </div>
         </form>
       </div>
-      <div><button className="greybutton"> Sign in</button></div>
+      <div><button onClick={navigateToSignIn} className="greybutton bfont"> Sign in / Register</button></div>
     </div>
   );
 };

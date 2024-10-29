@@ -34,4 +34,20 @@ router.get('/:id', async (req: Request, res: Response) => {
     }
 });
 
+// Check if a game exists via api_id
+router.get('/check/:api_id', async (req: Request, res: Response) => {
+    try {
+        const {api_id} = req.params;
+        const game = await Game.findOne({where: {api_id}});
+
+        if (game) {
+            res.json({exists: true, id: game.id});
+        } else {
+            res.json({exists: false});
+        }
+    } catch (error) {
+        res.status(500).json({error: error.message});
+    }
+});
+
 export { router as gameRouter };
