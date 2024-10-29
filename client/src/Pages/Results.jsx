@@ -1,15 +1,20 @@
 import '../App.css';
 import GameCard from '../components/GameCard';
 import SearchBar from '../components/SearchBar';
-import ReviewCard from '../Components/ReviewCard';
-import UserScore from '../Components/UserScore';
-import Extras from '../Components/Extras';
+import ReviewCard from '../components/ReviewCard';
+import UserScore from '../components/UserScore';
+import Extras from '../components/Extras';
 import gamefologo from '../assets/gamefologo.png';
 import { useContext } from 'react';
 import { ResultsContext } from '../components/ResultsContext';
 
 export function Results() {
   const {results} = useContext(ResultsContext);
+
+  const gameDetails = results[0];
+  const reviews = results[0].reviews || [];
+  const recommendations = results[0].recommendations || [];
+  const completionTimes = results[0].completionTimes || [];
 
   return (
     <div className="Bakcground container">
@@ -25,12 +30,12 @@ export function Results() {
           </div>
           
         </header>
-        <GameCard results={results[0]} className="container"></GameCard>
+        <GameCard results={gameDetails} className="container"></GameCard>
         <div className="cardrow container">
-          <ReviewCard></ReviewCard>
-          <UserScore></UserScore>
+          <ReviewCard reviews={reviews} />
+          <UserScore reviews={reviews} />
         </div>
-        <Extras></Extras>
+        <Extras recommendations={recommendations} completionTimes={completionTimes} />
       </div>
     </div>
   )

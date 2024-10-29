@@ -10,8 +10,11 @@ const RegisterForm = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/auth/register', {username, password });
-            setMessage(response.data.message);
+            const response = await axios.post('https://video-game-search-forum.onrender.com/api/users', {
+                username,
+                password,
+            });
+            setMessage(response.data.message || 'Registration Successful!');
         } catch (error) {
             setMessage(error.response.data.message || 'Registration failed.');
         }

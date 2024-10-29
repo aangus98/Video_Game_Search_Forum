@@ -10,11 +10,11 @@ const LoginForm = ({ setToken }) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/auth/login', { username, password });
-            setToken(response.data.token);
+            const response = await axios.post('https://video-game-search-forum.onrender.com/api/auth/login', { username, password });
+            localStorage.setItem('token', response.data.token);
             setMessage('Login successful!');
           } catch (error) {
-            setMessage(error.response.data.message || 'Login failed.');
+            setMessage(error.response.data.error || 'Login failed.');
           }
 };
 

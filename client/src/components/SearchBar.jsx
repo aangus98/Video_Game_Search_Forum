@@ -18,7 +18,7 @@ const SearchBar = () => {
         query: searchGame,
       });
       if (response.data) {
-        const api_id = response.data.api_id;
+        const api_id = response.data.id;
         let userContent = {};
 
         const checkForGame = await axios.get(`https://video-game-search-forum.onrender.com/api/games/check/${api_id}`);
@@ -39,14 +39,17 @@ const SearchBar = () => {
         }
         setResults([{...response.data, ...userContent}]);
         console.log({...response.data, ...userContent});
+        sessionStorage.setItem('searchedGameData', JSON.stringify(response.data));
+        sessionStorage.setItem('searchedGameUserContent', JSON.stringify(userContent));
         navigate('/results')
-      }
-
-      
+      }      
     } catch (error) {
       console.log('Oh god, not an error!', error);
     }
   };
+  const navigateToSignIn = () => {
+    navigate ('/signin');
+  }
 
   return (
     <div className="barrow">
@@ -64,7 +67,7 @@ const SearchBar = () => {
           </div>
         </form>
       </div>
-      <div><button className="greybutton"> Sign in</button></div>
+      <div><button onClick={navigateToSignIn} className="greybutton"> Sign in / Register</button></div>
     </div>
   );
 };

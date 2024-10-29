@@ -1,10 +1,6 @@
 
 
-const ReviewCard = () => {
-  const rev1a = "8.75";
-  const rev1b = "Review Title One";
-  const rev2a = "6.50";
-  const rev2b = "Review Title Two";
+const ReviewCard = ({reviews}) => {
 
   return ( 
     <div className="gamecard">
@@ -19,8 +15,16 @@ const ReviewCard = () => {
       </div>
       
       <div className="stack jersey-20-charted-regular"> 
-          <p className="textbox "> {rev1a} | {rev1b} </p>
-          <p className="textbox "> {rev2a} | {rev2b} </p>
+        {reviews.length > 0 ? (
+          reviews.map((review, index) => (
+          <p key={index} className="textbox">
+            {review.score} | {review.content}
+          </p>
+        ))
+        ) : (
+          <p className="textbox">Be the first to review!</p>
+        )
+        }
        </div>
 
     </div>
