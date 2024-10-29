@@ -1,6 +1,15 @@
+import { useNavigate } from "react-router-dom";
 
-const Extras = ({recommendations, completionTimes}) => {
-
+const Extras = ({recommendations, completionTimes, isAuthenticated}) => {
+  const navigate = useNavigate();
+  const handleAddPost = (postType) => {
+    if (!isAuthenticated) {
+      alert("Please log in to leave a post!");
+    } else {
+      navigate(`/addpost?type=${postType}`);
+    }
+  };
+  
   return ( 
     <div className="gamecard">
       <div className="ribbon">
@@ -22,7 +31,7 @@ const Extras = ({recommendations, completionTimes}) => {
           <p>No recommendations yet</p>
         )}
         <p className="textbox">
-            <button className="greybutton">Add A Game</button>
+            <button onClick={() => handleAddPost("recommendation")} className="greybutton">Add A Game</button>
           </p>
       </div>
       <div className="textbox">
@@ -35,7 +44,7 @@ const Extras = ({recommendations, completionTimes}) => {
           <p>No times yet</p>
         )}
         <p className="textbox">
-            <button className="greybutton">Submit A Time</button>
+            <button onClick={() => handleAddPost("completiontime")} className="greybutton">Submit A Time</button>
           </p>
       </div>
       </div>
