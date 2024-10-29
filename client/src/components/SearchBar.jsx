@@ -1,13 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import BackButton from './darkmode';
-<<<<<<< HEAD
-=======
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { ResultsContext } from './ResultsContext';
 import { useContext } from 'react';
->>>>>>> 85c5303f713ff2889337f66b21af70c0fc1b7d53
 
 const SearchBar = () => {
   const [searchGame, setSearchGame] = useState('');
@@ -44,7 +41,7 @@ const SearchBar = () => {
           </div>
         </form>
       </div>
-      <div><button className="greybutton"> Sign in</button></div>
+      <div><button className="greybutton bfont"> Sign in</button></div>
     </div>
   );
 };
