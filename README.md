@@ -84,6 +84,12 @@ A full-stack web application that allows users to search for video games, write 
      npm run startBack
      ```
 
+   - **Build the frontend**:
+
+     ```bash
+     npm run buildFront
+     ```
+
    - **Start the frontend**:
 
      ```bash
@@ -95,10 +101,10 @@ A full-stack web application that allows users to search for video games, write 
 ### **Local Development**
 
 1. **Backend**:
-   - To start the backend in development mode (with automatic restarts):
+   - After making changes to the backend, be sure to rebuild:
 
      ```bash
-     npm run devBack
+     npm run buildBack
      ```
 
 2. **Frontend**:
@@ -121,14 +127,15 @@ A full-stack web application that allows users to search for video games, write 
 
   ```bash
   npm run startBack
+  npm run startFront
   ```
 
 ## **API**
 
 ### **Authentication Endpoints**
 
-- **POST /auth/register**: Register a new user.
-- **POST /auth/login**: Log in and receive a JWT token.
+- **POST /api/users**: Register a new user.
+- **POST api/auth/login**: Log in and receive a JWT token.
 
 ### **Game Search**
 
@@ -137,19 +144,21 @@ A full-stack web application that allows users to search for video games, write 
 
     ```json
     {
-      "query": "game title"
+      "query": "Game Title"
     }
     ```
 
 ### **Review Endpoints**
 
-- **GET /api/reviews**: Get all reviews for a game.
+- **GET /api/reviews/game/:game_id**: Get all reviews for a game.
+- **DELETE /api/reviews/game/:game_id**: Delete a review for a game.
 - **POST /api/reviews**: Add a review for a game.
   - **Request Body**:
 
     ```json
     {
-      "game_id": 1,
+      "api_id": 1001,
+      "title": "Game Title",
       "content": "Great game!",
       "score": 9
     }
@@ -157,8 +166,34 @@ A full-stack web application that allows users to search for video games, write 
 
 ### **Recommendation Endpoints**
 
-- **GET /api/recommendations**: Get all recommendations.
-- **POST /api/recommendations**: Recommend a game to another user.
+- **GET /api/recommendations/game/:game_id**: Get all recommendations for a game.
+- **DELETE /api/recommendations/game/:game_id**: Delete a recommendation for a game.
+- **POST /api/recommendations**: Add a recommendation to a game.
+
+    ```json
+    {
+    "api_id": 1001,
+    "title": "Game Title",
+    "recommended_game_api_id": 1002,
+    "recommended_game_title": "Similar Game Title"
+    }
+    ```
+
+    ### **Completion Time Endpoints**
+
+- **GET /api/completiontimes/game/:game_id**: Get all completion times for a game.
+- **DELETE /api/completiontimes/game/:game_id**: Delete a completion time for a game.
+- **POST /api/completiontimes**: Add a completion time to a game.
+
+    ```json
+    {
+    "api_id": 1001,
+    "title": "Game Title",
+    "completion_time": 00:00:00,
+    }
+    ```
+
+
 
 ## **Contributing**
 
